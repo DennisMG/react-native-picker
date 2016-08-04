@@ -221,8 +221,8 @@ export default class PickerAny extends Component {
 						{item.map((value, index) => (
 							<PickerItem
 								key={index}
-								value={value}
-								label={value.toString()}
+								value={value.value}
+								label={value.label.toString()}
 							/>)
 						)}
 					</Picker>
@@ -419,14 +419,14 @@ export default class PickerAny extends Component {
 				<View style={[styles.pickerBox, this.state.style]}>
 					<View style={[styles.pickerToolbar, this.state.pickerToolBarStyle, {width: this.state.style.width || width}]}>
 						<View style={styles.pickerCancelBtn}>
-							<Text style={[styles.pickerFinishBtnText, this.state.pickerBtnStyle]}
+							<Text style={[styles.pickerFinishBtnText, this.state.pickerBtnStyle, {color:'grey'}]}
 								onPress={this._pickerCancel.bind(this)}>{this.state.pickerCancelBtnText}</Text>
 						</View>
 						<Text style={[styles.pickerTitle, this.state.pickerTitleStyle]} numberOfLines={1}>
 							{this.state.pickerTitle}
 						</Text>
 						<View style={styles.pickerFinishBtn}>
-							<Text style={[styles.pickerFinishBtnText, this.state.pickerBtnStyle]}
+							<Text style={[styles.pickerFinishBtnText, this.state.pickerBtnStyle, {color:'#46cf98'}]}
 								onPress={this._pickerFinish.bind(this)}>{this.state.pickerBtnText}</Text>
 						</View>
 					</View>
@@ -466,7 +466,7 @@ let styles = StyleSheet.create({
 		flex: 1
 	},
 	pickerToolbar: {
-		height: 30,
+		height: 40,
 		backgroundColor: '#e6e6e6',
 		flexDirection: 'row',
 		borderTopWidth: 1,
@@ -493,7 +493,7 @@ let styles = StyleSheet.create({
 		marginLeft: 20
 	},
 	pickerTitle: {
-		flex: 4,
+		flex: 2,
 		color: 'black',
 		textAlign: 'center'
 	},
